@@ -1,0 +1,175 @@
+#pixelContainer {
+  width: 800px;
+  height: 800px;
+  display: grid;
+  float: left;
+  border: 1px solid black;
+  grid-template-columns: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+  grid-template-rows: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+}
+#toolContainer {
+  display: grid;
+
+  grid-template-columns: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+  grid-template-rows: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+}
+.singleDisplayContainer {
+  float: left;
+  margin: 50px;
+  margin-bottom: 0px;
+  height: max-content;
+  width: 160px;
+}
+.displayText {
+  word-wrap: break-word;
+  overflow-y: scroll;
+  width: 160px;
+  height: max-content;
+  font-size: 13px;
+  font-weight: lighter;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+}
+.displayCanvas {
+  margin-bottom: 20px;
+  width: 160px;
+  height: 160px;
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px;
+  grid-template-rows: 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px 5px;
+}
+#colorselector {
+  width: 100%;
+  height: 100%;
+  grid-row: 1 / 3;
+  grid-column: 2 / 7;
+}
+#clearButton {
+  width: 100%;
+  height: 100%;
+  grid-row: 1/8;
+  grid-column: 9/ 14;
+  cursor: pointer;
+}
+#appearLastSaved {
+  grid-row: 1/8;
+  grid-column: 16/22;
+  cursor: pointer;
+}
+#saveButton {
+  grid-row: 5/ 10;
+  grid-column: 2 / 7;
+  cursor: pointer;
+}
+#descripInput {
+  grid-row: 21/26;
+  grid-column: 3 /12;
+  resize: none;
+}
+#finalCreateBut {
+  grid-row: 28/32;
+  grid-column: 17 /22;
+  cursor: pointer;
+}
+#eraserTool {
+  grid-row: 11/ 15;
+  grid-column: 2 / 7;
+  cursor: pointer;
+}
+#mainTitle {
+  text-align: center;
+}
+#artCreationContainer,
+#galleryContainer {
+  height: 800px;
+  padding-top: 40px;
+  padding-left: 40px;
+}
+#galleryContainer {
+  overflow: auto;
+}
+#mainContainer {
+  margin: auto;
+  width: 1399px;
+  height: 900px;
+  border: 1px black solid;
+  border-top: 0px;
+}
+.createSelectorSel {
+  float: left;
+  text-align: center;
+  border-top: 1px solid black;
+
+  width: 50%;
+}
+#uploaded {
+  display: none;
+}
+#slectedImageDisplay {
+  margin-left: 200px;
+  width: 300px;
+  height: 300px;
+  margin: 0px;
+  padding: 0px;
+  display: none;
+}
+#convertImageButton {
+  grid-row: 15/ 18;
+  grid-column: 12/19;
+  cursor: pointer;
+}
+#imageInput {
+  grid-row: 12/ 14;
+  grid-column: 12/19;
+  cursor: pointer;
+}
+.createSelectorUnsel {
+  text-align: center;
+  float: left;
+  cursor: pointer;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  margin-right: -1px;
+  border-bottom: 1px solid black;
+  margin-bottom: -1px;
+  width: 50%;
+}
+.gallerySelectorSel {
+  float: left;
+  text-align: center;
+  border-top: 1px solid black;
+
+  width: 50%;
+}
+.gallerySelectorUnsel {
+  text-align: center;
+  float: left;
+  cursor: pointer;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  margin-left: -1px;
+  border-bottom: 1px solid black;
+  margin-bottom: -1px;
+  width: 50%;
+}
+
+#selectorContainer {
+  width: 1400px;
+  margin: auto;
+}
+.tools {
+  border: 1px solid blaCK;
+  background: WHITE;
+}
+#descripInput {
+  font-size: 14px;
+  width: 300px;
+  height: 300px;
+}
