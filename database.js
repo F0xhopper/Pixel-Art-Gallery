@@ -1,14 +1,28 @@
 import express from "express";
 import mysql from "mysql";
+import cors from "cors";
 const app = express();
-const port = 3000;
+const port = 8000;
+app.use(cors({ origin: "*" }));
+const startserver = function startserver() {
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
+};
 
-// Define the API routes
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+startserver();
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "pixel_gallery",
+});
+connection.connect();
+
+connection.query("SELECT * FROM gallery", (err, result) => {
+  console.log(result);
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.get("/", (req, res) => {
+  res.json("sss");
 });

@@ -23,8 +23,9 @@ class artPiece {
     this.description = description;
   }
 }
-import result from "database.js";
-console.log(result);
+fetch("http://localhost:8000")
+  .then((response) => response.json())
+  .then((response) => console.log(JSON.stringify(response)));
 function genreateEmptyCanvas() {
   for (let i = 0; i < 32 * 32; i++) {
     let newDiv = document.createElement("div");
