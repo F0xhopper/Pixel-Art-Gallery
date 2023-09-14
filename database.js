@@ -2,7 +2,7 @@ import express from "express";
 import mysql from "mysql";
 import cors from "cors";
 const app = express();
-const port = 8000;
+const port = 8002;
 app.use(cors({ origin: "*" }));
 const startserver = function startserver() {
   app.listen(port, () => {
@@ -19,10 +19,8 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-connection.query("SELECT * FROM gallery", (err, result) => {
-  console.log(result);
-});
-
-app.get("/", (req, res) => {
-  res.json("sss");
+app.get("/xx", function (req, res, next) {
+  connection.query("SELECT * FROM gallery", function (error, results, fields) {
+    res.send(results);
+  });
 });

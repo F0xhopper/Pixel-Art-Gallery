@@ -23,7 +23,7 @@ class artPiece {
     this.description = description;
   }
 }
-fetch("http://localhost:8000")
+fetch("http://localhost:8002/xx")
   .then((response) => response.json())
   .then((response) => console.log(JSON.stringify(response)));
 function genreateEmptyCanvas() {
