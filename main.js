@@ -15,7 +15,6 @@ const convertImageButton = document.querySelector("#convertImageButton");
 const imageInput = document.querySelector("#imageInput");
 const slectedImageDisplay = document.querySelector("#slectedImageDisplay");
 const uploaded = document.querySelector("#uploaded");
-let arrayOfSavedArt = [];
 let eraserSelected = false;
 class artPiece {
   constructor(piece, description) {
@@ -23,9 +22,7 @@ class artPiece {
     this.description = description;
   }
 }
-fetch("http://localhost:8002/xx")
-  .then((response) => response.json())
-  .then((response) => console.log(JSON.stringify(response)));
+
 function genreateEmptyCanvas() {
   for (let i = 0; i < 32 * 32; i++) {
     let newDiv = document.createElement("div");
@@ -66,9 +63,13 @@ function createArt() {
     ""
   );
   let description = descripInput.value;
-
-  arrayOfSavedArt.push(new artPiece(pieceHTML, description));
-  console.log(arrayOfSavedArt);
+  fetch("http://localhost:8007/post", {
+    method: "post",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({ message: description, painting: pieceHTML }),
+  });
 }
 function changingBrushColour() {
   eraserSelected = false;
@@ -79,7 +80,7 @@ function convertPixelsToImage() {
 }
 let ctx;
 function imageLoad() {
-  let ctx = slectedImageDisplay.getContext("2d");
+  let ctx = slectedImageDisplay.getContext("2d", { willReadFrequently: true });
   let img = document.getElementById("uploaded");
 
   ctx.drawImage(img, 0, 0, 300, 150);
@@ -132,12 +133,16 @@ function changingToCreate() {
 }
 function displaySaved() {
   galleryContainer.innerHTML = "";
-  arrayOfSavedArt.forEach((artObj) => {
-    galleryContainer.innerHTML += `   <div class='singleDisplayContainer'>
-    <div class="displayCanvas">${artObj.piece}</div>
-    <div class="displayText">${artObj.description}</div>
+  fetch("http://localhost:8007/xx")
+    .then((response) => response.json())
+    .then((response) =>
+      response.forEach((artObj) => {
+        galleryContainer.innerHTML += `   <div class='singleDisplayContainer'>
+    <div class="displayCanvas">${artObj.Painting}</div>
+    <div class="displayText">${artObj.Mesasge}</div>
   </div>`;
-  });
+      })
+    );
 }
 
 function init() {
