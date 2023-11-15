@@ -15,6 +15,7 @@ const convertImageButton = document.querySelector("#convertImageButton");
 const imageInput = document.querySelector("#imageInput");
 const slectedImageDisplay = document.querySelector("#slectedImageDisplay");
 const uploaded = document.querySelector("#uploaded");
+const imageInputLabel = document.querySelector("#imageInputLabel");
 let eraserSelected = false;
 class artPiece {
   constructor(piece, description) {
@@ -100,7 +101,12 @@ function getArrayOfPixelColors() {
     }
   }
 }
-
+function changeImageInputText() {
+  imageInputLabel.textContent = "IMAGE SELECTED";
+}
+function changeImageInputTextBack() {
+  imageInputLabel.textContent = "SELECT IMAGE";
+}
 function changePixelsToImageArray() {
   let arrayOfPixels = document.querySelectorAll(".pixel");
   for (let b = 0; b < 1024; b++) {
@@ -144,7 +150,7 @@ function displaySaved() {
       })
     );
 }
-
+console.log("node database.js");
 function init() {
   genreateEmptyCanvas();
   makingPixelsPaintable();
@@ -153,7 +159,9 @@ function init() {
     changingToGallery();
     displaySaved();
   });
-  convertImageButton.addEventListener("click", convertPixelsToImage);
+  convertImageButton.addEventListener("click", () => {
+    convertPixelsToImage(), changeImageInputTextBack();
+  });
   eraserTool.addEventListener("click", usingEraser);
   uploaded.addEventListener("load", () => {
     imageLoad();
@@ -164,5 +172,6 @@ function init() {
   colorpicker.addEventListener("click", changingBrushColour);
   createSelector.addEventListener("click", changingToCreate);
   finalCreateButtun.addEventListener("click", createArt);
+  imageInput.addEventListener("change", changeImageInputText);
 }
 init();
